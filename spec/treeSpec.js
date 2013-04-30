@@ -16,5 +16,16 @@ describe("tree", function() {
     expect(tree.contains('a')).toEqual(true);
   });
 
+  it("be able to check all of the children", function() {
+    var nodeA = tree.addChild('a');
+    var nodeB = nodeA.addChild('b');
+    var nodeC = nodeB.addChild('c');
+    var nodeB1 = nodeA.addChild('b1');
+    expect(tree.contains('a')).toEqual(true);
+    expect(tree.contains('b')).toEqual(true);
+    expect(tree.contains('c')).toEqual(true);
+    expect(tree.contains('b1')).toEqual(true);
+  });
+
   // Add more tests here to test the functionality of tree.
 });

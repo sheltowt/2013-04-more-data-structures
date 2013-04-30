@@ -1,28 +1,27 @@
 // Note: don't use an array to do this.
 var makeLinkedList = function(){
   var newLinkedList = {};
-  newLinkedList.head = null;
-  newLinkedList.tail = null;
-  var count = 0;
-  var first = 0;
+  newLinkedList.head = 0;
+  newLinkedList.tail = 0;
 
   newLinkedList.addToTail = function(value){
-    newLinkedList[count] = value;
-    count ++;
+    var node = makeNode(value);
+    newLinkedList[newLinkedList.tail] = node;
+    newLinkedList.tail ++;
   };
 
   newLinkedList.removeHead = function(){
-    var returnValue = newLinkedList[first];
-    delete newLinkedList[first];
-    first ++;
+    var returnValue = newLinkedList[newLinkedList.head];
+    delete newLinkedList[newLinkedList.head];
+    newLinkedList.head ++;
     return returnValue;
   };
 
-  newLinkedList.contains = function(value){
+  newLinkedList.contains = function(checkvalue){
     var checker = false;
-    for(var key in newLinkedList){
-      if(newLinkedList[key] == value){
-        checker = true;
+    for(var node in newLinkedList){
+        if(newLinkedList[node].value == checkvalue){
+          return true;
       }
     }
     return checker;

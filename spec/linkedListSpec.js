@@ -20,14 +20,14 @@ describe("linkedList", function() {
     linkedList.addToTail('a');
     linkedList.addToTail('b');
     linkedList.addToTail('c');
-    expect(linkedList[2]).toEqual('c');
+    expect(linkedList[2].value).toEqual('c');
   });
 
   it("should be able to remove the first value and return it", function() {
     linkedList.addToTail('a');
     linkedList.addToTail('b');
     linkedList.addToTail('c');
-    expect(linkedList.removeHead()).toEqual('a');
+    expect(linkedList.removeHead().value).toEqual('a');
   });
 
   it("should be able to remove the second value and return it", function() {
@@ -35,13 +35,14 @@ describe("linkedList", function() {
     linkedList.addToTail('b');
     linkedList.addToTail('c');
     linkedList.removeHead();
-    expect(linkedList.removeHead()).toEqual('b');
+    expect(linkedList.removeHead().value).toEqual('b');
   });
 
   it("should be able to evaluate whether a value exists in itself", function() {
     linkedList.addToTail('a');
     linkedList.addToTail('b');
     linkedList.addToTail('c');
+    console.log(linkedList);
     expect(linkedList.contains('a')).toEqual(true);
   });
 

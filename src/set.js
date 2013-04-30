@@ -28,5 +28,10 @@ setPrototype.contains = function(value){
   return false;
 };
 
-setPrototype.remove = function(){
+setPrototype.remove = function(value){
+  for(var i = 0; i < this._storage.length; i++){
+    if(this._storage[i] == value){
+      delete this._storage[i];
+    }
+  }
 };
