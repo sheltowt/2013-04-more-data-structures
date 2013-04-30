@@ -11,5 +11,10 @@ describe("tree", function() {
     expect('value' in tree).toBe(true);
   });
 
+  it("should be able to add new values to nodes in the tree", function() {
+    tree.addChild('a');
+    expect(tree.contains('a')).toEqual(true);
+  });
+
   // Add more tests here to test the functionality of tree.
 });
