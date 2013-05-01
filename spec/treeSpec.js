@@ -27,5 +27,13 @@ describe("tree", function() {
     expect(tree.contains('b1')).toEqual(true);
   });
 
+  it("create a parent property that points to the parent node", function() {
+    var nodeA = tree.addChild('a');
+    var nodeB = nodeA.addChild('b');
+    var nodeC = nodeB.addChild('c');
+    var nodeB1 = nodeA.addChild('b1');
+    expect(nodeB.parent.value).toEqual('a');
+  });
+
   // Add more tests here to test the functionality of tree.
 });

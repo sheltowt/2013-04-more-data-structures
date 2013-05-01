@@ -2,6 +2,7 @@ var makeTree = function(){
   var newTree = Object.create(treeMethods);
   newTree.value = undefined;
   newTree.children = [];
+  newTree.parent = null;
   return newTree;
 };
 
@@ -11,6 +12,7 @@ treeMethods.addChild = function(value){
   // Create a new node with the passed value
   var node = makeTree();
   node.value = value;
+  node.parent = this;
 
   // Add it as a child of the current tree
   this.children.push(node);
