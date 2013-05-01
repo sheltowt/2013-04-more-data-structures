@@ -21,7 +21,7 @@ describe("linkedList", function() {
     linkedList.addToTail('b');
     linkedList.addToTail('c');
     console.log(linkedList);
-    expect(linkedList[2].value).toEqual('c');
+    expect(linkedList.contains('c')).toEqual(true);
   });
 
   it("should be able to remove the first value and return it", function() {
@@ -35,7 +35,7 @@ describe("linkedList", function() {
     linkedList.addToTail('a');
     linkedList.addToTail('b');
     linkedList.addToTail('c');
-    linkedList.removeHead();
+    expect(linkedList.removeHead().value).toEqual('a');
     expect(linkedList.removeHead().value).toEqual('b');
   });
 
@@ -44,6 +44,21 @@ describe("linkedList", function() {
     linkedList.addToTail('b');
     linkedList.addToTail('c');
     expect(linkedList.contains('a')).toEqual(true);
+  });
+
+  it("evaluate whether something is added to the head", function() {
+    linkedList.addToTail('a');
+    linkedList.addToTail('b');
+    linkedList.addToTail('c');
+    linkedList.addToHead('d');
+    expect(linkedList.head.value).toEqual('d');
+  });
+
+  it("evaluate whether something is added to the head", function() {
+    linkedList.addToTail('a');
+    linkedList.addToTail('b');
+    expect(linkedList.removeTail().value).toEqual('b');
+    expect(linkedList.tail.value).toEqual('a');
   });
 
   // add more tests here to test the functionality of linkedList

@@ -1,31 +1,54 @@
 // Note: don't use an array to do this.
 var makeLinkedList = function(){
   var newLinkedList = {};
-  newLinkedList.head = 0;
-  newLinkedList.tail = 0;
+  newLinkedList.head = null;
+  newLinkedList.tail = null;
+
+  newLinkedList.addToHead = function(value){
+    var node = makeNode(value);
+    node.next = newLinkedList.head;
+    newLinkedList.head = node;
+  };
 
   newLinkedList.addToTail = function(value){
     var node = makeNode(value);
-    node.next = newLinkedList.tail + 1;
-    newLinkedList[newLinkedList.tail] = node;
-    newLinkedList.tail ++;
+    if(newLinkedList.head){
+      node.previous = newLinkedList.tail;
+    }
+    if(newLinkedList.tail){
+      newLinkedList.tail.next = node;
+    } else {
+      newLinkedList.head =  node;
+    }
+    newLinkedList.tail = node;
   };
 
   newLinkedList.removeHead = function(){
-    var returnValue = newLinkedList[newLinkedList.head];
-    delete newLinkedList[newLinkedList.head];
-    newLinkedList.head ++;
+    var returnValue = newLinkedList.head;
+    newLinkedList.head = returnValue.next;
     return returnValue;
   };
 
+  newLinkedList.removeTail = function(){
+    var returnTail = newLinkedList.tail;
+    newLinkedList.tail = returnTail.previous;
+    return returnTail;
+  };
+
   newLinkedList.contains = function(checkvalue){
-    var checker = false;
-    for(var node in newLinkedList){
-        if(newLinkedList[node].value == checkvalue){
-          return true;
+    var firstNode = newLinkedList.head;
+    // return newLinkedList.head.contains(checkvalue);
+
+    var check = function(node){
+      if(node.value === checkvalue){
+        return true;
+      } else if (node.next === null){
+        return false;
+      } else {
+        return check(node.next);
       }
-    }
-    return checker;
+    };
+    return check(firstNode);
   };
 
   return newLinkedList;
@@ -35,8 +58,19 @@ var makeNode = function(value){
   var newNode = {};
   newNode.value = value;
   newNode.next = null;
+  newNode.previous = null;
 
   newNode.removeNextNode = function(){
+  };
+
+  newNode.contains = function(checkvalue) {
+
+    // if self.value === checkvalue
+    //  return true
+    // else if self.next
+    //  return self.next.contains(checkvalue)
+    // else
+    //  return false
   };
 
   return newNode;
