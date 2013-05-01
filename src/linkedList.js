@@ -6,6 +6,7 @@ var makeLinkedList = function(){
 
   newLinkedList.addToTail = function(value){
     var node = makeNode(value);
+    node.next = newLinkedList.tail + 1;
     newLinkedList[newLinkedList.tail] = node;
     newLinkedList.tail ++;
   };

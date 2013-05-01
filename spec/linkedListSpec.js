@@ -20,6 +20,7 @@ describe("linkedList", function() {
     linkedList.addToTail('a');
     linkedList.addToTail('b');
     linkedList.addToTail('c');
+    console.log(linkedList);
     expect(linkedList[2].value).toEqual('c');
   });
 
@@ -42,7 +43,6 @@ describe("linkedList", function() {
     linkedList.addToTail('a');
     linkedList.addToTail('b');
     linkedList.addToTail('c');
-    console.log(linkedList);
     expect(linkedList.contains('a')).toEqual(true);
   });
 
