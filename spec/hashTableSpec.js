@@ -11,32 +11,31 @@ describe("hashTable", function() {
   });
 
   it("it should be able to insert a value", function() {
-    hashTable.insert("a");
-    hashTable.insert("b");
-    expect(hashTable.retrieve(1)).toEqual("a");
-    expect(hashTable.retrieve(2)).toEqual("b");
+    hashTable.insert("a", "ahello");
+    hashTable.insert("b", "bhello");
+    expect(hashTable.retrieve("a")).toEqual("ahello");
+    expect(hashTable.retrieve("b")).toEqual("bhello");
   });
 
   it("it should enter up to 7 values", function() {
-    hashTable.insert("a");
-    hashTable.insert("b");
-    hashTable.insert("c");
-    hashTable.insert("d");
-    hashTable.insert("e");
-    hashTable.insert("f");
-    hashTable.insert("g");
-    console.log(hashTable);
-    expect(hashTable.retrieve(7)).toEqual("g");
+    hashTable.insert("a", "ahello");
+    hashTable.insert("b", "bhello");
+    hashTable.insert("c", "chello");
+    hashTable.insert("d", "dhello");
+    hashTable.insert("e", "ehello");
+    hashTable.insert("f", "fhello");
+    hashTable.insert("g", "ghello");
+    expect(hashTable.retrieve("g")).toEqual("ghello");
   });
 
   it("it should be able to remove a value", function() {
-    hashTable.insert("a");
-    hashTable.insert("b");
-    hashTable.insert("c");
-    hashTable.insert("d");
-    hashTable.remove(3);
-    hashTable.insert("3d");
-    expect(hashTable.retrieve(3)).toEqual("3d");
+    hashTable.insert("a", "ahello");
+    hashTable.insert("b", "bhello");
+    hashTable.insert("c", "chello");
+    hashTable.insert("d", "dhello");
+    hashTable.remove("d");
+    hashTable.insert("d", "d4hello");
+    expect(hashTable.retrieve("d")).toEqual("d4hello");
   });
 
   // add more tests here to test the functionality of hashTable
