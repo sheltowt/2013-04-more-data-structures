@@ -25,6 +25,7 @@ describe("hashTable", function() {
     hashTable.insert("e");
     hashTable.insert("f");
     hashTable.insert("g");
+    console.log(hashTable);
     expect(hashTable.retrieve(7)).toEqual("g");
   });
 
@@ -33,7 +34,7 @@ describe("hashTable", function() {
     hashTable.insert("b");
     hashTable.insert("c");
     hashTable.insert("d");
-    hashTable.remove("d");
+    hashTable.remove(3);
     hashTable.insert("3d");
     expect(hashTable.retrieve(3)).toEqual("3d");
   });
