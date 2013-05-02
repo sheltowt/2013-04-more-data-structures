@@ -36,3 +36,18 @@ treeMethods.contains = function(value){
   }
   return false;
 };
+
+treeMethods.removeFromParent = function(){
+  var parent = this.parent;
+  for(var i = 0; i < parent.children.length; i++){
+    console.log(this.value);
+    console.log(parent);
+    console.log(parent.children[i].value);
+    if(parent.children[i] === null){
+      break;
+    } else if(parent.children[i].value === this.value){
+      parent.children.slice(i,1);
+    }
+  }
+  this.parent = null;
+};

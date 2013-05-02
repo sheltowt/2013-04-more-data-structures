@@ -35,5 +35,16 @@ describe("tree", function() {
     expect(nodeB.parent.value).toEqual('a');
   });
 
+  it("should be able to disociate a tree with its parent in each direction", function() {
+    var nodeA = tree.addChild('a');
+    var nodeB = nodeA.addChild('b');
+    var nodeC = nodeB.addChild('c');
+    var nodeD = nodeB.addChild('d');
+    var nodeB1 = nodeA.addChild('b1');
+    console.log(nodeB);
+    var removedB = nodeB.removeFromParent();
+    expect(nodeB.parent).toEqual(null);
+  });
+
   // Add more tests here to test the functionality of tree.
 });
